@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        login
+    </title>
+    <style>
+        .body{
+            margin: 0%;
+            padding: 0%;
+        }
+        .container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+        .form_container{
+            border: 1px solid rgb(189, 189, 189);
+            display: flex;
+            flex-direction: column;
+            width: 25%;
+            justify-content: space-between;
+            box-shadow: 0px 0px  15px #828282;
+            margin-bottom: 100px;
+        }
+        .input{
+            display: flex;
+            flex-direction: column;
+            margin: 10px;
+        }
+        .title_of_div{
+            background-color: #ec5361;
+        }
+        .button_div div{
+            display: flex;
+            flex-direction: row;
+        }
+        .button_div{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+        button{
+            height: 40px;
+            border-radius: 20px;
+            width: 100px;
+            transition-duration: 0.3s;
+            margin: 10px;
+            font-size: medium;
+        }
+        button:hover{
+            background-color: #ec5361;
+            color: white;
+            transition-duration: 0.3s;
+            border: 0px;
+        }
+        .input input{
+            width: 200px;
+            height: 35px;
+            padding-left: 15px;
+            border-radius: 20px;
+        }
+        .input{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .footer{
+    background: #282827;
+    color: #8a8a8a;
+    font-size: 14px;
+    padding: 30px 0 20px;
+    }
+    .row{
+        display: flex;
+        flex-direction: row;
+    }
+    .footer p{
+    color: #8a8a8a;
+    }
+    .footer h3{
+    color:#fff;
+    margin-bottom:20px;
+    }
+    .footer-col-1, .footer-col-2, .footer-col-3, .footer-col-4{
+    min-width: 250px;
+    margin-bottom: 60px;
+    }
+    .footer-col-1 h3{
+        margin-bottom: 0px;
+    }
+    .footer-col-1{
+    flex-basis: 30%;
+    
+    }
+    .footer-col-2{
+    flex: 1;
+    text-align: center;
+    
+    }
+    .footer-col-2 img {
+    width: 180px;
+    margin-bottom: 20px;
+    transition: transform 0.5s;
+    }
+    
+    .footer-col-2 img:hover {
+        width: 180px;
+        margin-bottom: 20px;
+        transform: scale(1.1);
+        }
+    
+    .footer-col-3 , .footer-col-4{
+    flex-basis: 12%;
+    text-align: center;
+    }
+    
+    .footer-col-4 ul  img{
+        transition: transform 0.5s;
+    }
+    .footer-col-4 ul  img:hover{
+        transform: scale(1.2);
+    }
+    .footer-col-3 ul li{
+        transition: transform 0.5s;
+    }
+    .footer-col-3 ul li:hover{
+        transform: scale(1.2);
+    }
+    ul{
+    list-style-type: none;
+    }
+    .app-logo{
+    margin-top: -10px;
+    }
+    .app-logo img{
+        margin: 30px;
+    width: 50px;
+    transition: transform 0.5s;
+    }
+    
+    .app-logo img:hover{
+        margin: 30px;
+       
+    width: 50px;
+    transform: scale(1.2);
+    
+    }
+    .footer hr{
+    border: none;
+    background: #b5b5b5;
+    height: 1px ;
+    margin:  20px 0;
+    margin-left: 60px;
+    margin-right: 60px;
+    }
+    .faqs{
+        text-align: center;
+    }
+    .Copyright{
+    text-align: center;
+    }
+    </style>
+</head>
+
+<body style="text-align:center;" id="body">
+    <div class="container">
+        <div class="form_container">
+            <div class="title_of_div">
+                <h1 style="color:rgb(255, 255, 255);">
+                    Login
+                </h1>
+            </div>
+            <p>
+                <!-- Making a text input -->
+            <div class="input">
+                <input type="email" id="email" placeholder="Email">
+                <br>
+                <br>
+                <input type="password" id="pass" placeholder="Password">
+                <br>
+                <br>
+            </div>
+            <!-- Button to send data -->
+            <div class="button_div">
+                <div>
+                    <button onclick="sendJSON()">Login</button>
+                <br>
+                <br>
+                <button onclick="register()">Register</button>
+                </div>
+                
+            </div>
+            <!-- For printing result from server -->
+            <p class="result" style="color:green"></p>
+            </p>
+        </div>
+    </div>
+    <!--FOOTER-->
+    <div class="footer">
+        <div class="comntainer">
+            <div class="row">
+                <div class="footer-col-1">
+                    <h3 style="margin: 5px; margin-left: 50px;">
+                        Download App.
+                    </h3>
+    
+                    <div class="app-logo">
+                        <img src="./download (2).png" style="border-radius: 20px;">
+                        <img src="./download (1).png" style="border-radius: 20px;">
+                    </div>
+                </div>
+                <div class="footer-col-2">
+                    <a href="login.html"> <img src="./79717-blood-drop.gif"
+                            style="font-size: 30%; border-radius: 100%;"></a>
+                    <p><b>
+                            Join us!
+                        </b></p>
+                </div>
+                <div class="footer-col-3">
+                    <h3 style="margin: 20px;">
+                        Useful Project.
+                    </h3>
+                    <ul><b>
+                            <li> Cupons</li><br>
+                            <li>Blog post</li><br>
+                            <li>Return policy </li><br>
+                            <li>Join Affiliate</li><br>
+                        </b>
+                    </ul>
+                </div>
+                <div class="footer-col-4">
+                    <h3>
+                        Follow us on.
+                    </h3>
+                    <ul>
+                        <a href="https://www.instagram.com/"><img src="./-51609193448mids70tdmp.png"
+                                style="margin: 20px ; width: 50px; border-radius: 20px;"> </a>
+                        <a href="https://twitter.com/?lang=en-in"><img src="./Black-icon-Twitter-logo-transparent-PNG.png"
+                                style="margin: 20px ; width: 50px; border-radius: 100%;"> </a>
+                    </ul>
+                </div>
+            </div>
+            <p class="faqs">faq &emsp; terms of service &emsp; contact us &emsp; privacy policy &emsp; refund</p>
+            <hr>
+            <p class="Copyright"> Copyright@2023</p>
+        </div>
+    </div>
+    <!--FOOTER-->
+    <!-- Include the JavaScript file -->
+    <script>
+        function sendJSON() {
+            let result = document.querySelector('.result');
+            let email = document.querySelector('#email');
+            let pass = document.querySelector('#pass');
+            // Creating a XHR object
+            let xhr = new XMLHttpRequest();
+            let url = "http://192.168.1.3:4000/api/user/login";
+            // open a connection
+            xhr.open("POST", url, true);
+            // Set the request header i.e. which type of content you are sending
+            xhr.setRequestHeader("Content-Type", "application/json");
+
+            // Create a state change callback
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+
+                    // Print received data from server
+                    result.innerHTML = "Logged In ";
+
+                    const data = JSON.parse(xhr.response);
+
+
+                   
+                    console.log(data);
+
+                    sessionStorage.setItem("logged", 1);
+                    sessionStorage.setItem("auth-token", data['token']);
+                    
+                    sessionStorage.setItem("userId", data['_id']);
+                    
+                    location.replace("userDashboard.html");
+
+
+                } else {
+                    
+                    result.innerHTML = this.response;
+                }
+            };
+
+            // Converting JSON data to string
+            var data = JSON.stringify({ "email": email.value, "password": pass.value });
+
+            // Sending data with the request
+            xhr.send(data);
+        }
+
+        function register() {
+            location.replace("/register.html")
+        }
+
+    </script>
+
+</body>
+
+</html>

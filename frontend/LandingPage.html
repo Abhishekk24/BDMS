@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body{
+            margin: 0%;
+            font-family: 'Rajdhani', sans-serif;
+
+        }
+        .title{
+            font-size: 90px;
+            font-weight: 400;
+            margin-left: -270px;
+            margin-bottom: 50px;
+            margin-top: 40px;
+        }
+        .nav-container{
+            background-image: url(header.svg);
+            background-repeat: no-repeat;
+            height: 50%;
+        }
+        .navbar{
+            display: flex;
+            flex-direction: row;
+        }
+        .nav-elements{
+            display: flex;
+            flex-direction: row;
+        }
+        .nav-elements li{
+            display: flex;
+            flex-direction: row;
+            text-decoration: none;
+            padding: 20px;
+            padding-inline: 25px;
+            font-size: larger;
+        }
+        .logo img{
+            max-width: 300px;
+            border-radius: 100%;
+        }
+        .branding{
+            display: flex;
+            flex-direction: row;
+        }
+        .half-div{
+            display: flex;
+            flex-direction: row;
+            width: 60%;
+            margin-left: auto;
+            justify-content: space-between;
+        }
+        .login-btn{
+            height: 45px;
+            width: 130px;
+            background: transparent;
+            border-radius: 20px;
+            font-size: larger;
+            border: 2px solid#ffffff;
+            color: #ffffff;
+            transition-duration: 0.3s;
+        }
+    
+        
+        .login-btn:hover{
+            height: 45px;
+            width: 130px;
+            background-color: #ffffff;
+            border-radius: 20px;
+            font-size: larger;
+            border: 2px solid#ffffff;
+            color: #000000;
+            transition-duration: 0.3s;
+        }
+        .title img{
+            max-width: 130px;
+            margin-bottom: -35px;
+            margin-left: -35px;
+            margin-right: -35px;
+            z-index: -2;
+        }
+        .count-container{
+            display: flex;
+            justify-content: space-around;
+            margin-top: 50px;
+        }
+        .inner{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .box{
+            background-color: #FF5F71;
+            display: flex;
+            flex-direction: row;
+            width: 230px;
+            justify-content: space-around;
+            border-radius: 10px;
+            box-shadow: 10px 10px  15px #888888;
+        }
+        .box p{
+            font-size: x-large;
+            color: #ffffff;
+        }
+        .log a{
+            font-size: large;
+            text-decoration: none;
+            color: #000000;
+        }
+        .log{
+            margin-top: 15px;
+        }
+        .content{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .con-head h2{
+            font-size: 50px;
+        }
+        .con-body h3{
+            font-size: 25px;
+        }
+        .con-feature{
+            width: 60%;
+        }
+        .feature-1{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+        @keyframes hovering {
+    0% { transform: translate(0,  0px); }
+    50%  { transform: translate(0, 10px); }
+    100%   { transform: translate(0, 0px); }   
+}
+        .f1-img img{
+            width: 350px;
+            animation-name: hovering;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-in-out;
+        }
+        .f1-con h2{
+            font-size: x-large;
+        }
+        .f1-con p{
+            font-size: larger;
+        }
+
+        .feature-2{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        .f2-img img{
+            width: 350px;
+        }
+        .f2-con h2{
+            font-size: x-large;
+        }
+        .f2-con p{
+            font-size: larger;
+        }
+.footer{
+    background: #282827;
+    color: #8a8a8a;
+    font-size: 14px;
+    padding: 30px 0 20px;
+    }
+    .row{
+        display: flex;
+        flex-direction: row;
+    }
+    .footer p{
+    color: #8a8a8a;
+    }
+    .footer h3{
+    color:#fff;
+    margin-bottom:20px;
+    }
+    .footer-col-1, .footer-col-2, .footer-col-3, .footer-col-4{
+    min-width: 250px;
+    margin-bottom: 60px;
+    }
+    .footer-col-1 h3{
+        margin-bottom: 0px;
+    }
+    .footer-col-1{
+    flex-basis: 30%;
+    
+    }
+    .footer-col-2{
+    flex: 1;
+    text-align: center;
+    
+    }
+    .footer-col-2 img {
+    width: 180px;
+    margin-bottom: 20px;
+    transition: transform 0.5s;
+    }
+    
+    .footer-col-2 img:hover {
+        width: 180px;
+        margin-bottom: 20px;
+        transform: scale(1.1);
+        }
+    
+    .footer-col-3 , .footer-col-4{
+    flex-basis: 12%;
+    text-align: center;
+    }
+    
+    .footer-col-4 ul  img{
+        transition: transform 0.5s;
+    }
+    .footer-col-4 ul  img:hover{
+        transform: scale(1.2);
+    }
+    .footer-col-3 ul li{
+        transition: transform 0.5s;
+    }
+    .footer-col-3 ul li:hover{
+        transform: scale(1.2);
+    }
+    ul{
+    list-style-type: none;
+    }
+    .app-logo{
+    margin-top: -10px;
+    }
+    .app-logo img{
+        margin: 30px;
+    width: 50px;
+    transition: transform 0.5s;
+    }
+    
+    .app-logo img:hover{
+        margin: 30px;
+       
+    width: 50px;
+    transform: scale(1.2);
+    
+    }
+    .footer hr{
+    border: none;
+    background: #b5b5b5;
+    height: 1px ;
+    margin:  20px 0;
+    margin-left: 60px;
+    margin-right: 60px;
+    }
+    .faqs{
+        text-align: center;
+    }
+    .Copyright{
+    text-align: center;
+    }
+
+    </style>
+</head>
+<body>
+    <!--NAVBAR-->
+    <div class="nav-container">
+        <div class="half-div">
+            <div class="heading"><br>
+                <div class="title">LIFEN<img src="./animation_500_ldqi0ya2.gif">RTH FOUNDATION</div>
+                <div class="logo"><img src="./2088-blood-drop.gif"></div>
+            </div>
+            <nav class="navbar">
+                <ul class="nav-elements">
+                    <li><button class="login-btn" onclick="location.replace('login.html')">Login</button></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <div class="count-container">
+        <div class="inner">
+            <div class="box">
+                <p>Total Donors:</p>
+                <p id="count">56</p>
+            </div>
+            <div class="log">
+                <a href="login.html">Join Us Now!!!</a> 
+            </div>
+        </div>
+    </div>
+    <!--NAVBAR-->
+    <div class="content">
+        <div class="con-head"><h2>We Save Lives</h2></div>
+        <div class="con-body"><h3>Find blood donors near your location and make a blood request</h3></div>
+        <div class="con-feature">
+            <div class="feature-1">
+                <div class="f1-img"><img src="./localisation.jpeg"></div>
+                <div class="f1-con"><h2>Find Blood</h2><p>Find and get connected to blood donation camps in your area</p></div>
+            </div>
+            <div class="feature-2">
+                <div class="f1-con">
+                    <h2>Get Rewarded</h2>
+                    <p>Collect credits after blood donation to win goodies</p>
+                </div>
+                <div class="f1-img"><img src="./8287-redeem-points-to-get-gift.gif"></div>
+            </div>
+            <div class="feature-3">
+
+            </div>
+        </div>
+    </div>
+    <!--FOOTER-->
+    <div class="footer">
+        <div class="comntainer">
+            <div class="row">
+                <div class="footer-col-1">
+                    <h3 style="margin: 5px; margin-left: 50px;">
+                        Download App.
+                    </h3>
+    
+                    <div class="app-logo">
+                        <img src="./download (2).png" style="border-radius: 20px;">
+                        <img src="./download (1).png" style="border-radius: 20px;">
+                    </div>
+                </div>
+                <div class="footer-col-2">
+                    <a href="login.html"> <img src="./79717-blood-drop.gif" style="font-size: 30%; border-radius: 100%;"></a>
+                    <p><b>
+                            Join us!
+                        </b></p>
+                </div>
+                <div class="footer-col-3">
+                    <h3 style="margin: 20px;">
+                        Useful Project.
+                    </h3>
+                    <ul><b>
+                            <li> Cupons</li><br>
+                            <li>Blog post</li><br>
+                            <li>Return policy </li><br>
+                            <li>Join Affiliate</li><br>
+                        </b>
+                    </ul>
+                </div>
+                <div class="footer-col-4">
+                    <h3>
+                        Follow us on.
+                    </h3>
+                    <ul>
+                        <a href="https://www.instagram.com/"><img src="./-51609193448mids70tdmp.png"
+                                style="margin: 20px ; width: 50px; border-radius: 20px;"> </a>
+                        <a href="https://twitter.com/?lang=en-in"><img src="./Black-icon-Twitter-logo-transparent-PNG.png"
+                                style="margin: 20px ; width: 50px; border-radius: 100%;"> </a>
+                    </ul>
+                </div>
+            </div>
+            <p class="faqs">faq &emsp; terms of service &emsp; contact us &emsp; privacy policy &emsp; refund</p>
+            <hr>
+            <p class="Copyright"> Copyright@2023</p>
+        </div>
+    </div>
+    <!--FOOTER-->
+</body>
+<script>
+    const xhr = new XMLHttpRequest();
+        xhr.open("GET", "http://192.168.1.3:4000/api/user/getDonation");
+        xhr.send();
+        xhr.responseType = "json";
+        xhr.onload = () => {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                const data = xhr.response;
+                console.log(data);
+                 document.getElementById("count").innerHTML = data["count"];
+            } else {
+                console.log(`Error: ${xhr.status}`);
+            }
+
+        };
+        
+</script>
+</html>

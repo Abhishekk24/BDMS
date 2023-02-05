@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User_Dashboard</title>
+    <style>
+        .container{
+            display: flex;
+            flex-direction:row;
+            justify-content: space-around;
+        }
+        .form{
+            width: 50%;
+            margin-left: 20px;
+            margin-right: 20px;
+
+        }
+        .form h1{
+            background-color: red;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form">
+            <h1>Blood Donation Camp Regestration Form</h1>
+            <p class=""required>required to be filled are followed by *.</p>
+            <div>
+                <p><b>Organization Name: </b><input type="text" id="org_name"><p>
+                <p><b>Organizer Name: </b><input type="text" id="name"></p>
+                <p><b>Contact No.: </b><input type="text" id="contact_no"></p>
+                <p><b>Email: </b><input type="text" id="email"></p>
+                <p><b>Location of Blood Donation Camp: </b><textarea id="location" cols="95" rows="2"></textarea></p>
+                <p><b>Blood Donation camp date: </b><input type="date" id="camp_date"></p>
+                <p><b>Password: </b><input type="password" id="pass"></p>
+                <p><b>Confirm Password: </b><input type="password" id="confirm_pass"></p>
+                <button id="generate_id" onclick="sendJson()">Generate ID</button>
+                </div>
+        </div>
+    </div>  
+    
+</body>
+<script>
+    function sendJson(){
+        var organization_name = document.getElementById("org_name").value;
+        var organizer_name = document.getElementById("name").value;
+        var contact_no = document.getElementById("contact_no").value;
+        var email = document.getElementById("email").value;
+        var location = document.getElementById("location").value;
+        var camp_date = document.getElementById("camp_date").value;
+        var password_ = document.getElementById("pass").value;
+        var confirm_password = document.getElementById("confirm_pass").value;
+        if(password_ == confirm_password)
+        {
+            var password = password_;
+        }
+        else
+        {
+            alert("Please check the entered password!");
+            document.getElementById("pass").value = "";
+            document.getElementById("confirm_pass").value = "";
+            return
+        }
+        //console.log(organization_name);
+        //console.log(organizer_name);
+        //console.log(contact_no);
+        //console.log(email);
+        //console.log(location);
+        //console.log(camp_date);
+        //console.log(password);
+        var obj = {
+            organization_name : organization_name,
+            organizer_name : organizer_name,
+            contact_no : contact_no,
+            email : email,
+            location : location,
+            camp_date : camp_date,
+            password : password
+        }
+        var myjson = JSON.stringify(obj)
+        console.log(myjson)
+    }
+</script>
+</html>

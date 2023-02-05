@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        body{
+            margin: 0%;
+        }
+        .nav-container{
+            background-color: #DC2D45;
+        }
+        .navbar{
+            display: flex;
+            flex-direction: row;
+        }
+        .nav-elements{
+            display: flex;
+            flex-direction: row;
+            margin-left: auto;
+        }
+        .nav-elements li{
+            display: flex;
+            flex-direction: row;
+            text-decoration: none;
+            padding: 20px;
+            padding-inline: 25px;
+            font-size: larger;
+        }
+        .branding{
+            display: flex;
+            flex-direction: row;
+        }
+        .table{
+            display: flex;
+        }
+        .container{
+            display: flex;
+            justify-content: center;
+        }
+        table, thead, th{
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        table, tbody, td{
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        .table-title{
+            justify-items: center;
+        }
+        .box{
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+<!--<p id="status">Status : </p>
+
+<button id="logout">LogOut</button>-->
+<!--NAVBAR-->
+<div class="nav-container">
+    <nav class="navbar">
+        <div class="branding">
+            <div class="logo">Logo</div>
+            <div class="title">Title</div>
+        </div>
+        <ul class="nav-elements">
+            <li>Credits:<span id="credit"></span></li>
+            <li onclick="location.replace('./camp_login_form')">Camps</li>
+            <li><img src="./user-1.1s-200px.png" alt="" style="width: 40px;border-radius: 100%;"></li>
+            <li onclick="sessionStorage.clear();location.replace('login.html')">Logout</li>
+        </ul>
+    </nav>
+</div>
+<!--NAVBAR-->
+<!--DASHBOARD-->
+<div class="container">
+    <div class="table">
+        <div class="donation">
+            <div class="table-title"><p>Donated</p></div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Sr.no</th>
+                        <th>Amount</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody >
+                    <tr>
+                        <td>1</td>
+                        <td>300</td>
+                        <td>01/01/2000</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="receive">
+            <div class="table-title"><p>Received</p></div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Sr.no</th>
+                        <th>Amount</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody">
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <p id="showRes"></p>
+    <h1 id="credit"></h1>
+</div>
+<!--DASHBOARD-->
+<!--buttons-->
+<div class="button-box">
+    <div class="box">
+        <button onclick="location.reload('donor_details_form.html')">Donate</button>
+        <button>Receive</button>
+    </div>
+</div>
+<!--buttons-->
+
+    
+    </body>
+<script>
+    var id = sessionStorage.getItem("key");
+    const a = JSON.parse(id)
+    id  = a['_id'];
+
+
+     let xhr = new XMLHttpRequest();
+        let url = "http://192.168.1.3:4000/api/user/getUserDonation";
+        let token = sessionStorage.getItem("auth-token");
+        let _id = sessionStorage.getItem("userId");
+
+        // open a connection
+        xhr.open("POST", url, true);
+
+        // Set the request header i.e. which type of content you are sending
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.setRequestHeader("auth-token", token);
+        xhr.setRequestHeader("userId", _id);
+
+        // Create a state change callback
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+
+                // Print received data from server
+                result = document.getElementById('showRes');
+                result.innerHTML = "" + xhr.response;
+
+                //console.log()
+
+                var data = JSON.parse(xhr.response)
+                
+                credit = document.getElementById('credit');
+                credit.innerHTML = "" + data['credit'];
+                console.log(data.result[1]['dob'])
+                sessionStorage.setItem("logged", 1);
+                sessionStorage.setItem("key", this.responseText);
+                // var tbody = document.getElementById('tbody');
+                // tbody.innerHTML = "";
+                // for (var i = 0; i < data.result.length; i++) {
+                //     var tr = "<tr>";
+                //     tr += "<td>ID</td>" + "<td>" + data.result[i]['date'] + "</td></tr>";
+                //     tr += "<td>HomeTown</td>" + "<td>" + data.result[i]['credit'] + "</td></tr>";
+                //     tr += "<td>Gender</td>" + "<td>" + data.result[i]['credit'] + "</td></tr>";
+                //     tr += "<hr>";
+                //     tbody.innerHTML += tr;
+                // }
+                function jsonToTable(json) {
+                    var table = "<table>";
+                    var tr = "<tr>";
+
+                    for (var i in json[0]) {
+                        tr += "<th>" + i + "</th>";
+                    }
+                    table += tr + "</tr>";
+
+                    for (var i = 0; i < json.length; i++) {
+                        tr = "<tr>";
+                        for (var j in json[i]) {
+                            tr += "<td>" + json[i][j] + "</td>";
+                        }
+                        table += tr + "</tr>";
+                    }
+                    table += "</table>";
+                    return table;
+                }
+            } else {
+                result = document.getElementById('showRes');
+                result.innerHTML = "" + xhr.response;
+
+            }
+        };
+
+
+        // Sending data with the request
+        xhr.send(null);
+        
+
+    // let status = sessionStorage.getItem("logged");
+    // var logoutBtn = document.querySelector("#logout");
+
+    //var status
+    // if(status == 1){
+    //     document.getElementById("status").innerHTML = "logged in";
+    // }else{
+    //     alert("UnAuthorised user");
+    //     location.replace("login.html");
+    // }
+    // console.log("KEY =" + key);
+
+</script>
+</html>
